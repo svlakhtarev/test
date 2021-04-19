@@ -1,0 +1,8 @@
+.nav {
+    grid-area: n;
+    background-color: aqua;
+  }
+nav a {
+    color: white;
+    margin-left: 10px;
+}
