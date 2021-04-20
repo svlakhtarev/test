@@ -1,8 +1,3 @@
-.content {
-  grid-area: c;
+.profile {
+ padding: 10px;
 }
-.pImg {
- width: 1400px;
- height: auto;
-}
-

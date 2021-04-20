@@ -5,7 +5,12 @@
   "n c"
   ;
 
-  grid-template-rows: 60px auto;
+  grid-template-rows: 70px auto;
   grid-template-columns: 100px auto;
   grid-gap: auto;
+}
+
+.app-wrapper-content {
+  grid-area: c;
+  background-color: dodgerblue;
 }
