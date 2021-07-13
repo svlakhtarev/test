@@ -1,6 +1,7 @@
 import React from "react";
 import s from "./formsContorls.module.css";
 
+//Fields type builder. Use custom types.
 const FormControl = ({input, meta, child, ...props}) => {
     const hasError = meta.touched && meta.error;
     return (
@@ -12,6 +13,8 @@ const FormControl = ({input, meta, child, ...props}) => {
         </div>
     )
 }
+
+//Custom types for Fields.
 
 export const Textarea = (props) => {
     const {input, meta, child, ...restProps} = props;
