@@ -1,14 +1,12 @@
 .app-wrapper {
-  display: grid;
-  grid-template-areas: 
-  "h h"
-  "n c"
-  ;
-  grid-template-rows: 70px auto;
-  grid-template-columns: 100px auto;
-  grid-gap: auto;
+    display: grid;
+    grid-template-areas: "h h" "n c";
+    grid-template-rows: 70px auto;
+    grid-template-columns: 100px auto;
+    grid-gap: auto;
 }
+
 .app-wrapper-content {
-  grid-area: c;
-  background-color: dodgerblue;
+    grid-area: c;
+    background-color: dodgerblue;
 }
