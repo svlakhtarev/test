@@ -1,6 +1,19 @@
-.dialogs {
-    display: grid;
-    grid-template-columns: 2fr 10fr;
+.button {
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #274472;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    color: #274472;
+    text-align:center;
+    transition: all 0.2s;
+}
+
+.button:hover{
+    color:#C3E0E5;
+    background-color: #274472;
 }
 
 .dialogs_items {
@@ -11,8 +24,9 @@
     color: gold;
 }
 
-.dialog {
-
+.dialogs {
+    display: flex;
+    flex-direction: row;
 }
 
 .messages {
@@ -20,5 +34,5 @@
 }
 
 .message {
-    
+
 }

@@ -2,21 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6561790b-a07a-402e-bdee-1342de2f1ce9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatusWhithHooks.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/DialogItem/DialogItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/DialogItem/DialogItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Massage/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Message/Message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatus.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Users/UsersSelectors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/UsersSelectors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/FormsControls/formsContorls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/FormsControls/formsContorls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Preloader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Preloader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/dialogsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/dialogsReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login/Login.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/Login.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Nav/Nav.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Nav/Nav.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatusWhithHooks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileStatusWhithHooks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hoc/WithAuthRedirect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/WithAuthRedirect.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +121,7 @@
       <workItem from="1625897387216" duration="900000" />
       <workItem from="1625938390517" duration="26870000" />
       <workItem from="1626176288350" duration="10126000" />
-      <workItem from="1626190623737" duration="9925000" />
+      <workItem from="1626190623737" duration="24107000" />
     </task>
     <task id="LOCAL-00001" summary="Update">
       <created>1618904352591</created>
@@ -140,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626202136622</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Update1307v2">
+      <created>1626207897660</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1626207897660</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -185,13 +189,14 @@
     <MESSAGE value="Update" />
     <MESSAGE value="Update274" />
     <MESSAGE value="Update1307" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update1307" />
+    <MESSAGE value="Update1307v2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update1307v2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="777" y="0" key="CommitChangelistDialog2" timestamp="1626202135651">
+    <state x="777" y="0" key="CommitChangelistDialog2" timestamp="1626207896621">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="777" y="0" key="CommitChangelistDialog2/0.0.1536.816@0.0.1536.816" timestamp="1626202135651" />
+    <state x="777" y="0" key="CommitChangelistDialog2/0.0.1536.816@0.0.1536.816" timestamp="1626207896621" />
     <state x="334" y="0" key="SettingsEditor" timestamp="1625566149973">
       <screen x="0" y="0" width="1536" height="816" />
     </state>

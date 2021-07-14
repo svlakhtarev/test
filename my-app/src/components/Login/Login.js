@@ -10,30 +10,31 @@ import {Redirect} from "react-router-dom";
 const LoginForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
-            <div>
+            <div className={s.inputFields}>
                 <Field placeholder={"Email"}
                        name={"email"}
                        validate={[required]}
                        component={Input}/>
             </div>
-            <div>
+            <div className={s.inputFields}>
                 <Field placeholder={"Password"}
                        name={"password"}
                        type={"password"}
                        validate={[required]}
                        component={Input}/>
             </div>
-            <div>
+            <div className={s.inputLogin}>
                 <Field component={Input}
                        name={'rememberMe'}
-                       type={'checkbox'}/> remember me
+                       type={'checkbox'}
+                       id={'input'}/> remember me
             </div>
             {props.error &&
             <div className={s.formSummaryError}>
                 {props.error}
             </div>}
             <div>
-                <button>LogIn</button>
+                <button className={s.button}>LogIn</button>
             </div>
         </form>
     )

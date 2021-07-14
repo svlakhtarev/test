@@ -37,7 +37,7 @@ const AddNewPostForm = (props) => {
                 />
             </div>
             <div>
-                <button>Add Post</button>
+                <button className={s.button}>Add Post</button>
             </div>
         </form>
     )
