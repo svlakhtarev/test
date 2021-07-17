@@ -1,12 +1,20 @@
 .description {
-    padding: 10px;
+  padding: 10px;
 }
 
 .pImg {
-    width: 1400px;
-    height: auto;
+  width: 1400px;
+  height: auto;
 }
 
 .profileStatus {
+}
 
+.userPhoto {
+  width: 200px;
+  height: auto;
+}
+
+.contact {
+  padding-left: 10px;
 }

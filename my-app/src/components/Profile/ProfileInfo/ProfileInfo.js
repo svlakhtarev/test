@@ -1,55 +1,101 @@
-import React from "react";
-import s from "./ProfileInfo.module.css";
-import Preloader from "../../common/Preloader";
-import ProfileStatusWithHooks from "./ProfileStatusWhithHooks";
+import React, {useState} from 'react';
+import style from './ProfileInfo.module.css';
+import Preloader from '../../common/Preloader';
+import ProfileStatusWithHooks from './ProfileStatusWhithHooks';
+import userPhoto from './../../../assets/images/1200px-User_with_smile.svg.png'
+import ProfileDataForm from './ProfileDataForm';
+import {MyButton, MyFile} from '../../common/FormsControls/formsContorls';
+
+const ProfileInfo = ({
+                       profile,
+                       status,
+                       updateStatus,
+                       isOwner,
+                       savePhoto,
+                       saveProfile
+                     }) => {
+
+  let [editMode, setEditMode] = useState(false);
 
 
-const ProfileInfo = (props) => {
-    if (!props.profile) return <Preloader/>
+  if (!profile) return <Preloader/>
 
-    return (
-        <div>
-            {/*<div>
-                <img className={s.pImg}
-                     src='https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg'/>
-            </div>*/}
-            <div className={s.description}>
-                <div>
-                    <img src={props.profile.photos.large}/>
-                </div>
-                <div>
-                    <strong>Status: </strong>
-                    <i><u><ProfileStatusWithHooks
-                        status={props.status}
-                        updateStatus={props.updateStatus}/></u></i>
-                </div>
-                <div>
-                    <strong>Full Name: </strong>
-                    {props.profile.fullName}
-                </div>
-                <div>
-                    <strong>About Me: </strong>
-                    {props.profile.aboutMe}
-                </div>
-                <div>
-                    <strong>Contacts:</strong>
-                </div>
-                <div>{props.profile.contacts.facebook}</div>
-                <div>{props.profile.contacts.website}</div>
-                <div>{props.profile.contacts.vk}</div>
-                <div>{props.profile.contacts.twitter}</div>
-                <div>{props.profile.contacts.instagram}</div>
-                <div>{props.profile.contacts.youtube}</div>
-                <div>{props.profile.contacts.github}</div>
-                <div>{props.profile.contacts.mainLink}</div>
-                <div>
-                    <strong>Looking For A Job: </strong>
-                    {props.profile.lookingForAJob}
-                    {props.profile.lookingForAJobDescription}
-                </div>
-            </div>
-        </div>
+  const onMainPhotoSelected = (event) => {
+    if (event.target.files.length) {
+      savePhoto(event.target.files[0]);
+    }
+  }
+
+  const onSubmit = (formData) => {
+    saveProfile(formData).then(
+      () => {
+        setEditMode(false);
+      }
     )
+  }
+
+  return (
+    <div>
+      <div className={style.description}>
+        <div>
+          <img className={style.userPhoto}
+               src={profile.photos.large
+               || userPhoto}
+               alt={''}/>
+          <div>
+            {isOwner && <MyFile onChange={onMainPhotoSelected}/>}
+          </div>
+        </div>
+        <div className={style.profileStatus}>
+          <strong>Status: </strong>
+          <ProfileStatusWithHooks
+            status={status}
+            updateStatus={updateStatus}/>
+        </div>
+        {editMode ? <ProfileDataForm
+            initialValues={profile}
+            profile={profile}
+            onSubmit={onSubmit}/>
+          : <ProfileData goToEditMode={() => {
+            setEditMode(true)
+          }} isOwner={isOwner} profile={profile}/>}
+      </div>
+    </div>
+  )
+}
+
+const ProfileData = ({profile, isOwner, goToEditMode}) => {
+  return <div>
+    {isOwner && <div><MyButton onClick={goToEditMode}
+                               title={'Edit profile info'}/></div>}
+    <div>
+      <strong>Full Name: </strong>
+      {profile.fullName}
+    </div>
+    <div>
+      <strong>About Me: </strong>
+      {profile.aboutMe}
+    </div>
+    <div>
+      <strong>Contacts: </strong>
+      <div className={style.contact}> {Object.keys(profile.contacts).map(key => {
+        return <Contact key={key}
+                        contactTitle={key}
+                        contactValue={profile.contacts[key]}/>
+      })}</div>
+    </div>
+    <div>
+      <strong>Looking For A Job: </strong>
+      {profile.lookingForAJob}
+      {profile.lookingForAJobDescription}
+    </div>
+  </div>
+}
+
+const Contact = ({contactTitle, contactValue}) => {
+  return <div>
+    <strong>{contactTitle}: </strong> {contactValue}
+  </div>
 }
 
 export default ProfileInfo;

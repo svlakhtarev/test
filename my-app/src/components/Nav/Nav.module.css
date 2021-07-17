@@ -1,15 +1,16 @@
 .nav {
-    display: flex;
-    flex-direction: column;
-    background-color: #5885AF;
-    flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #5885AF;
+  flex: 1;
 }
 
 .nav a {
-    color: white;
-    padding: 15px;
-    text-decoration: none;
+  color: white;
+  padding: 15px;
+  text-decoration: none;
 }
+
 .nav a.active {
-    color: gold;
+  color: gold;
 }

@@ -1,8 +1,97 @@
 .formControl.error input,
 .formControl.error textarea {
-    border: solid red 2px;
+  border: solid red 2px;
 }
 
 .formControl.error span {
-    color: red;
+  color: red;
+}
+
+.field {
+  display: flex;
+  flex-direction: inherit;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #274472;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #274472;
+  text-align: center;
+}
+
+.button:hover {
+  color: #C3E0E5;
+  background-color: #274472;
+}
+
+textarea {
+  width: 470px;
+  max-width: 470px;
+  height: 110px;
+  max-height: 110px;
+  background: transparent;
+  outline: none;
+  color: #5885AF;
+  border: solid 1px #274472;
+}
+
+textarea:hover {
+  background: #5885AF;
+  color: white;
+}
+
+textarea::placeholder {
+  color: #5885AF;
+}
+
+input {
+  width: 470px;
+  max-width: 470px;
+  height: 40px;
+  background: transparent;
+  outline: none;
+  color: #5885AF;
+  border: solid 1px #274472;
+}
+
+input:hover {
+  background: #5885AF;
+  color: white;
+}
+
+input::placeholder {
+  color: #5885AF;
+}
+
+input[type="checkbox"] {
+  height: 15px;
+  width: 15px;
+  background: transparent;
+  outline: none;
+  color: #5885AF;
+  border: solid 1px #274472;
+}
+
+.file {
+  display: inline-block;
+  padding: 0 0;
+  border: 0.1em solid #274472;
+  margin: 0 0 0 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #274472;
+  text-align: center;
+  transition: all 0.2s;
+  width: 200px;
+  height: 25px;
+}
+
+.file:hover {
+  color: #C3E0E5;
+  background-color: #274472;
 }

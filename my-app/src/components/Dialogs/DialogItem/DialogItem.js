@@ -1,15 +1,16 @@
 import React from 'react';
-import {NavLink} from "react-router-dom";
-import s from "./../Dialogs.module.css";
+import {NavLink} from 'react-router-dom';
+import style from './../Dialogs.module.css';
 
 //Dialogs list on Messages
-const DialogItem = (props) => {
-    return (
-        <div className={s.dialog + ' ' + s.active}>
-            <NavLink to={"/dialogs/" + props.id}>
-                {props.name}</NavLink>
-        </div>
-    )
+const DialogItem = ({name, id}) => {
+  return (
+    <div className={style.dialog}>
+      <NavLink to={'/dialogs/' + id}>
+        {name}
+      </NavLink>
+    </div>
+  )
 }
 
 export default DialogItem;

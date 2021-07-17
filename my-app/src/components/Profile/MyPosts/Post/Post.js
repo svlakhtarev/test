@@ -1,15 +1,17 @@
 import React from 'react';
-import s from './Post.module.css';
+import style from './Post.module.css';
+import userPhoto from '../../../../assets/images/1200px-User_with_smile.svg.png';
 
-const Post = (props) => {
-    return (
-        <div className={s.postBody}>
-            <img src='https://i2.wp.com/nopcproblem.ru/wp-content/uploads/2019/05/discord-logo.png'/>
-            <div>{props.name}</div>
-            <div>{props.message}</div>
-            <div>{props.likesCount}</div>
-        </div>
-    )
+
+const Post = ({name, message, likesCount}) => {
+  return (
+    <div className={style.postBody}>
+      <img src={userPhoto} alt={''}/>
+      <div>{name}</div>
+      <div>{message}</div>
+      <div>{likesCount}</div>
+    </div>
+  )
 }
 
 export default Post;
