@@ -12,6 +12,7 @@ import sidebarReducer from './sidebarReducer'
 import usersReducer from './usersReducer'
 import authReducer from './authReducer'
 import appReducer from './appReducer'
+import chatReducer from './chatReducer'
 
 let rootReduser = combineReducers({
   profilePage: profileReducer,
@@ -20,7 +21,8 @@ let rootReduser = combineReducers({
   usersPage: usersReducer,
   auth: authReducer,
   form: formReducer,
-  app: appReducer
+  app: appReducer,
+  chat: chatReducer
 })
 
 type RootReducerType = typeof rootReduser

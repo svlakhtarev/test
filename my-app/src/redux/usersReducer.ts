@@ -7,16 +7,21 @@ import {APIResponceType} from '../api/api'
 
 let initialState = {
   users: [] as Array<UserType>,
-  pageSize: 10,
+  pageSize: 12,
   totalUsersCount: 0,
   currentPage: 1,
   isFetching: true,
-  followingInProgress: [] as Array<number>
+  followingInProgress: [] as Array<number>,
+  filter: {
+    term: '',
+    friend: null as null | boolean
+  }
 }
 
 type DispatchType = Dispatch<ActionsTypes>
 type ThunkType = BaseThunkType<ActionsTypes>
 export type initialStateType = typeof initialState
+export type FilterType = typeof initialState.filter
 
 const usersReducer = (state = initialState, action: ActionsTypes): initialStateType => {
   switch (action.type) {
@@ -49,6 +54,9 @@ const usersReducer = (state = initialState, action: ActionsTypes): initialStateT
     }
     case 'TOGGLE_IS_FETCHING': {
       return {...state, isFetching: action.isFetching}
+    }
+    case 'SET_FILTER': {
+      return {...state, filter: action.payload}
     }
     case 'TOGGLE_IS_FOLLOWING_PROGRESS': {
       return {
@@ -95,16 +103,22 @@ export const actions = {
     type: 'TOGGLE_IS_FOLLOWING_PROGRESS',
     isFetching,
     userID
-  } as const)
+  } as const),
+  setFilter: (filter: FilterType) => ({
+    type: 'SET_FILTER',
+    payload: filter
+  } as const),
 }
 
 export const requestUsers = (currentPage: number,
-                             pageSize: number): ThunkType => {
+                             pageSize: number,
+                             filter: FilterType): ThunkType => {
   return async (dispatch) => {
     dispatch(actions.setCurrentPage(currentPage))
     dispatch(actions.setToggleIsFetching(true))
+    dispatch(actions.setFilter(filter))
 
-    let data = await usersAPI.getUsers(currentPage, pageSize)
+    let data = await usersAPI.getUsers(currentPage, pageSize, filter.term, filter.friend)
     dispatch(actions.setToggleIsFetching(false))
     dispatch(actions.setUsers(data.items))
     dispatch(actions.setUsersTotalCount(data.totalCount))

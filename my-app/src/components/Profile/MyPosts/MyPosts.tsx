@@ -3,12 +3,11 @@ import {InjectedFormProps, reduxForm} from 'redux-form'
 import style from './MyPosts.module.css'
 import Post from './Post/Post'
 import {maxLenghtCreator, required} from '../../../utils/validators/validators'
-import {createField, GetStringKeys, MyButtonString, Textarea} from '../../common/FormsControls/formsContorls'
+import {createField, GetStringKeys, Textarea} from '../../common/FormsControls/formsContorls'
 import {PostType} from '../../../Types/Types'
+import {Button} from 'antd'
 
 const maxLenght100 = maxLenghtCreator(100)
-
-type FormPropsType = {}
 const AddNewPostForm: FC<InjectedFormProps<AddPostFormType, FormPropsType> & FormPropsType> = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
@@ -19,24 +18,12 @@ const AddNewPostForm: FC<InjectedFormProps<AddPostFormType, FormPropsType> & For
           Textarea)}
       </div>
       <div>
-        <MyButtonString title={'Add Post'}/>
+        <Button>Add Post</Button>
       </div>
     </form>
   )
 }
-
 const AddNewPostFormRedux = reduxForm<AddPostFormType>({form: 'AddNewPostForm'})(AddNewPostForm)
-
-type AddPostFormType = {
-  newPostText: string
-}
-type PostFormValueTypeKeys = GetStringKeys<AddPostFormType>
-export type MapMyPostsPropsType = {
-  posts: Array<PostType>
-}
-export type DispatchMyPostPropsType = {
-  addPost: (newPostText: string) => void
-}
 const MyPosts: FC<MapMyPostsPropsType & DispatchMyPostPropsType> = props => {
   let postsElements = [...props.posts]
     .reverse()
@@ -59,7 +46,18 @@ const MyPosts: FC<MapMyPostsPropsType & DispatchMyPostPropsType> = props => {
     </div>
   )
 }
-
 const MyPostMemo = React.memo(MyPosts)
+
+type FormPropsType = {}
+type AddPostFormType = {
+  newPostText: string
+}
+type PostFormValueTypeKeys = GetStringKeys<AddPostFormType>
+export type MapMyPostsPropsType = {
+  posts: Array<PostType>
+}
+export type DispatchMyPostPropsType = {
+  addPost: (newPostText: string) => void
+}
 
 export default MyPosts

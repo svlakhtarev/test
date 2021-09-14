@@ -4,8 +4,9 @@ import Preloader from '../../common/Preloader'
 import ProfileStatusWithHooks from './ProfileStatusWhithHooks'
 import userPhoto from './../../../assets/images/1200px-User_with_smile.svg.png'
 import ProfileDataForm from './ProfileDataForm'
-import {MyButtonClick} from '../../common/FormsControls/formsContorls'
 import {ContactsType, ProfileType} from '../../../Types/Types'
+import {Button, Upload} from 'antd'
+import { UploadOutlined } from '@ant-design/icons';
 
 type PropsType = {
   profile: ProfileType | null
@@ -52,9 +53,13 @@ const ProfileInfo: FC<PropsType> = ({
                || userPhoto}
                alt={''}/>
           <div>
-            {isOwner && <input className={style.file}
+            {isOwner && <Upload>
+              <Button onChange={onMainPhotoSelected} icon={<UploadOutlined />}>Click to Upload</Button>
+            </Upload>}
+
+            {/*<input className={style.file}
                                type={'file'}
-                               onChange={onMainPhotoSelected}/>}
+                               onChange={onMainPhotoSelected}/>*/}
           </div>
         </div>
         <div className={style.profileStatus}>
@@ -82,8 +87,7 @@ type PropsProfileDataType = {
 }
 const ProfileData: FC<PropsProfileDataType> = ({profile, isOwner, goToEditMode}) => {
   return <div>
-    {isOwner && <div><MyButtonClick onClick={goToEditMode}
-                                    title={'Edit profile info'}/></div>}
+    {isOwner && <div><Button onClick={goToEditMode}>Edit profile info</Button></div>}
     <div>
       <strong>Full Name: </strong>
       {profile.fullName}

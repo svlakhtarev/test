@@ -5,15 +5,7 @@ import Message from './Message/Message'
 import {initialStateType} from '../../redux/dialogsReducer'
 import AddMessageForm from './Message/AddMessageFrom'
 
-type OwnPropsType = {
-  dialogPage: initialStateType
-  sendMessage: (messageText: string) => void
-}
-export type NewMsgFormValueType = {
-  newMessageBody: string
-}
 const Dialogs: FC<OwnPropsType> = (props) => {
-
   let state = props.dialogPage
   let dialogsElement = state.dialogs.map(d =>
     <DialogItem name={d.name}
@@ -38,6 +30,14 @@ const Dialogs: FC<OwnPropsType> = (props) => {
       </div>
     </div>
   )
+}
+
+type OwnPropsType = {
+  dialogPage: initialStateType
+  sendMessage: (messageText: string) => void
+}
+export type NewMsgFormValueType = {
+  newMessageBody: string
 }
 
 export default Dialogs

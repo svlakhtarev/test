@@ -1,0 +1,9 @@
+.chatUserPhoto {
+  width: 50px;
+  height: auto;
+}
+
+.messagesChat {
+  height: 300px;
+  overflow-y: auto;
+}

@@ -4,15 +4,6 @@ import ProfileInfo from './ProfileInfo/ProfileInfo'
 import MyPostsContainer from './MyPosts/Post/MyPostsContainer'
 import {ProfileType} from '../../Types/Types'
 
-type PropsType = {
-  profile: ProfileType | null
-  status: string
-  updateStatus: (status: string) => void
-  isOwner: boolean
-  savePhoto: (file: File) => void
-  saveProfile: (profile: ProfileType) => Promise<any>
-}
-
 const Profile: FC<PropsType> = (props) => {
   return (
     <div>
@@ -28,6 +19,15 @@ const Profile: FC<PropsType> = (props) => {
       </div>
     </div>
   )
+}
+
+type PropsType = {
+  profile: ProfileType | null
+  status: string
+  updateStatus: (status: string) => void
+  isOwner: boolean
+  savePhoto: (file: File) => void
+  saveProfile: (profile: ProfileType) => Promise<any>
 }
 
 export default Profile

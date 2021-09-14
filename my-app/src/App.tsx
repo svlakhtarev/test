@@ -1,34 +1,26 @@
-import React, {Component} from 'react'
-import {
-  Redirect,
-  Route,
-  Switch,
-  withRouter
-} from 'react-router-dom'
+import React, {Component, lazy, Suspense} from 'react'
+import {Link, Redirect, Route, Switch, withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {compose} from 'redux'
 import {initializeApp} from './redux/appReducer'
-import './App.css'
 import Preloader from './components/common/Preloader'
-import Nav from './components/Nav/Nav'
-import News from './components/News/News'
-import Music from './components/Music/Music'
-import Settings from './components/Settings/Settings'
-import HeaderContainer from './components/Header/HeaderContainer'
+import {NavMenu} from './components/Nav/Nav'
 import {AppStateType} from './redux/reduxStore'
+import {UsersPage} from './components/Users/UsersContainer'
+import {Login} from './components/Login/Login'
+import {Header} from './components/Header/Header'
+import 'antd/dist/antd.css'
+import {Layout} from 'antd'
 
-const UsersContainer = React.lazy(
-  () => import('./components/Users/UsersContainer')
-)
-const Login = React.lazy(
-  () => import('./components/Login/Login')
-)
-const ProfileContainer = React.lazy(
+const ChatPage = lazy(() => import('./pages/Chat/ChatPage'))
+const ProfileContainer = lazy(
   () => import('./components/Profile/ProfileContainer')
 )
-const DialogsContainer = React.lazy(
+const DialogsContainer = lazy(
   () => import('./components/Dialogs/DialogsContainer')
 )
+
+const {Content, Footer, Sider} = Layout
 
 type MapPropsType = ReturnType<typeof mapStateToProps>
 type DispatchPropsType = {
@@ -46,33 +38,43 @@ class App extends Component<MapPropsType & DispatchPropsType> {
     }
 
     return (
-      <div className='app-wrapper'>
-        <HeaderContainer/>
-        <Nav/>
-        <div className={'app-wrapper-content'}>
-          <React.Suspense fallback={<Preloader/>}>
-            <Switch>
-              <Route path='/' exact>
-                <Redirect to='/profile'/>
-              </Route>
-              <Route path="/profile/:userID?"
-                     render={() => <ProfileContainer/>}/>
-              <Route path="/dialogs"
-                     render={() => <DialogsContainer/>}/>
-              <Route path="/users"
-                     render={() => <UsersContainer/>}/>
-              <Route path="/login"
-                     render={() => <Login/>}/>
-            </Switch>
-          </React.Suspense>
-          <Route path="/news"
-                 render={() => <News/>}/>
-          <Route path="/music"
-                 render={() => <Music/>}/>
-          <Route path="/settings"
-                 render={() => <Settings/>}/>
-        </div>
-      </div>
+      <Layout>
+        <Header/>
+        <Content style={{padding: '0 50px'}}>
+          {/*<Breadcrumb style={{margin: '16px 0'}}>
+            <Breadcrumb.Item>Home</Breadcrumb.Item>
+            <Breadcrumb.Item>List</Breadcrumb.Item>
+            <Breadcrumb.Item>App</Breadcrumb.Item>
+          </Breadcrumb>*/}
+          <Layout className="site-layout-background" style={{padding: '24px 0'}}>
+            <Sider className="site-layout-background" width={200}>
+              <NavMenu/>
+            </Sider>
+            <Content style={{padding: '0 24px', minHeight: 280}}>
+              <Suspense fallback={<Preloader/>}>
+                <Switch>
+                  <Route path='/' exact>
+                    <Redirect to='/profile'/>
+                  </Route>
+                  <Route path="/profile/:userID?"
+                         render={() => <ProfileContainer/>}/>
+                  <Route path="/dialogs"
+                         render={() => <DialogsContainer/>}/>
+                  <Route path="/users"
+                         render={() => <UsersPage pageTitle={'Users'}/>}/>
+                  <Route path="/login"
+                         render={() => <Login/>}/>
+                  <Route path="/chat"
+                         render={() => <ChatPage/>}/>
+                </Switch>
+              </Suspense>
+            </Content>
+          </Layout>
+        </Content>
+        <Footer style={{textAlign: 'center'}}>Learning project by <Link
+          to={'https://social-network.samuraijs.com'}>IT-Incubator</Link>. Create by <Link
+          to={'https://github.com/svlakhtarev'}>Serj Lakhtarev</Link>.</Footer>
+      </Layout>
     )
   }
 }

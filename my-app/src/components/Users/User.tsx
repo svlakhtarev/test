@@ -5,13 +5,6 @@ import userPhoto from '../../assets/images/1200px-User_with_smile.svg.png'
 import {MyButton} from '../common/FormsControls/formsContorls'
 import {UserType} from '../../Types/Types'
 
-type PropsType = {
-  user: UserType
-  unfollow: (userID: number) => void
-  follow: (userID: number) => void
-  followingInProgress: Array<number>
-}
-
 const User: FC<PropsType> = ({
                                user,
                                unfollow,
@@ -55,6 +48,13 @@ const User: FC<PropsType> = ({
       </span>
     </div>
   )
+}
+
+type PropsType = {
+  user: UserType
+  unfollow: (userID: number) => void
+  follow: (userID: number) => void
+  followingInProgress: Array<number>
 }
 
 export default User

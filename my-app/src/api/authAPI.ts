@@ -1,18 +1,4 @@
-import {
-  instance,
-  APIResponceType,
-  ResultCodesEnum,
-  ResultCodesForCaptcha
-} from './api'
-
-type MeResponceDataType = {
-  id: number
-  email: string
-  login: string
-}
-type LoginResponceDataType = {
-  userID: number
-}
+import {instance, APIResponceType, ResultCodesEnum, ResultCodesForCaptcha} from './api'
 
 export const authAPI = {
   me() {
@@ -35,4 +21,13 @@ export const authAPI = {
   logout() {
     return instance.delete('auth/login')
   }
+}
+
+type MeResponceDataType = {
+  id: number
+  email: string
+  login: string
+}
+type LoginResponceDataType = {
+  userID: number
 }

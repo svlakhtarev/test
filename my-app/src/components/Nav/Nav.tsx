@@ -1,48 +1,34 @@
 import React, {FC} from 'react'
 import {NavLink} from 'react-router-dom'
-import style from './Nav.module.css'
+import {UserOutlined, LaptopOutlined} from '@ant-design/icons'
+import {Menu} from 'antd'
 
-const Nav: FC = () => {
+const {SubMenu} = Menu
+
+export const NavMenu: FC = () => {
   return (
-    <nav className={style.nav}>
-      <div>
-        <NavLink to='/profile'
-                 activeClassName={style.active}>
+    <Menu
+      mode='inline'
+      defaultSelectedKeys={['1']}
+      defaultOpenKeys={['sub1']}
+      style={{height: '100%'}}
+    >
+      <SubMenu key='sub1' icon={<UserOutlined/>} title='My Profile'>
+        <Menu.Item key='1'><NavLink to='/profile'>
           Profile
-        </NavLink>
-      </div>
-      <div>
-        <NavLink to='/dialogs'
-                 activeClassName={style.active}>
+        </NavLink></Menu.Item>
+        <Menu.Item key='2'><NavLink to='/dialogs'>
           Messages
-        </NavLink>
-      </div>
-      <div>
-        <NavLink to='/users'
-                 activeClassName={style.active}>
-          Users
-        </NavLink>
-      </div>
-      {/*<div>
-        <NavLink to='/news'
-                 activeClassName={style.active}>
-          News
-        </NavLink>
-      </div>
-      <div>
-        <NavLink to='/music'
-                 activeClassName={style.active}>
-          Music
-        </NavLink>
-      </div>
-      <div>
-        <NavLink to='/settings'
-                 activeClassName={style.active}>
-          Settings
-        </NavLink>
-      </div>*/}
-    </nav>
+        </NavLink></Menu.Item>
+        <Menu.Item key='3'><NavLink to='/chat'>
+          Chat
+        </NavLink></Menu.Item>
+      </SubMenu>
+      <SubMenu key='sub2' icon={<LaptopOutlined/>} title='Users'>
+        <Menu.Item key='5'><NavLink to='/users'>
+          All Users
+        </NavLink></Menu.Item>
+      </SubMenu>
+    </Menu>
   )
 }
-
-export default Nav

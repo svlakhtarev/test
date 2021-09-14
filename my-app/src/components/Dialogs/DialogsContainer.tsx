@@ -16,6 +16,5 @@ export default compose(
   connect(
     mapStateToProps,
     {...actions}
-  ),
-  withAuthRedirect
+  ), withAuthRedirect
 )(Dialogs) as ComponentType

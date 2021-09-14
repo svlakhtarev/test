@@ -1,10 +1,6 @@
 import React, {ChangeEvent, FC, useEffect, useState} from 'react'
 import style from './ProfileInfo.module.css'
 
-type PropsType = {
-  status: string
-  updateStatus: (status: string) => void
-}
 const ProfileStatusWithHooks: FC<PropsType> = (props) => {
   let [editMode, setEditMode] = useState(false)
   let [status, setStatus] = useState(props.status)
@@ -37,6 +33,11 @@ const ProfileStatusWithHooks: FC<PropsType> = (props) => {
              onBlur={deactivateEditMode}
              value={status}/>}
     </div>)
+}
+
+type PropsType = {
+  status: string
+  updateStatus: (status: string) => void
 }
 
 export default ProfileStatusWithHooks

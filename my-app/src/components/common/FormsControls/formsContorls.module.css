@@ -75,23 +75,3 @@ input[type="checkbox"] {
   color: #5885AF;
   border: solid 1px #274472;
 }
-
-.file {
-  display: inline-block;
-  padding: 0 0;
-  border: 0.1em solid #274472;
-  margin: 0 0 0 0;
-  border-radius: 0.12em;
-  box-sizing: border-box;
-  text-decoration: none;
-  color: #274472;
-  text-align: center;
-  transition: all 0.2s;
-  width: 200px;
-  height: 25px;
-}
-
-.file:hover {
-  color: #C3E0E5;
-  background-color: #274472;
-}

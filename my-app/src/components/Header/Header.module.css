@@ -1,14 +1,5 @@
-.header {
-  display: flex;
-  flex-wrap: wrap;
-  flex: 1 100%;
-  align-self: flex-start;
-  justify-content: space-between;
-  background-color: #5885AF;
-}
-
-.header img {
-  width: 50px;
+.logo {
+  width: 70px;
   padding: 10px;
 }
 

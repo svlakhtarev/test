@@ -1,16 +1,15 @@
 import {maxLenghtCreator, required} from '../../../utils/validators/validators'
 import {FC} from 'react'
 import {InjectedFormProps, reduxForm} from 'redux-form'
-import {createField, MyButtonString, Textarea} from '../../common/FormsControls/formsContorls'
+import {createField, Textarea} from '../../common/FormsControls/formsContorls'
 import {NewMsgFormValueType} from '../Dialogs'
-
-type NewMsgFormValueTypeKeys = Extract<keyof NewMsgFormValueType, string>
+import {Button} from 'antd'
 
 const maxLenght200 = maxLenghtCreator(200)
 
-const AddMessageForm: FC<InjectedFormProps<NewMsgFormValueType>> = (props) => {
+const AddMessageForm: FC<InjectedFormProps<NewMsgFormValueType>> = ({handleSubmit}) => {
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form>
       <div>
         {createField<NewMsgFormValueTypeKeys>('Enter your message',
           'newMessageBody',
@@ -18,10 +17,12 @@ const AddMessageForm: FC<InjectedFormProps<NewMsgFormValueType>> = (props) => {
           Textarea)}
       </div>
       <div>
-        <MyButtonString title={'Send'}/>
+        <Button onClick={handleSubmit}>Send</Button>
       </div>
     </form>
   )
 }
+
+type NewMsgFormValueTypeKeys = Extract<keyof NewMsgFormValueType, string>
 
 export default reduxForm<NewMsgFormValueType>({form: 'dialogAddMessageForm'})(AddMessageForm)
